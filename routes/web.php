@@ -5,10 +5,15 @@ use App\Http\Controllers\homeController;
 
 use App\Http\Controllers\CursoController;
 
-
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 });
+
+Route::get('/hola', function () {
+    return "Hola mundo";
+});
+
+
 
  Route::resource('cursos', CursoController::class);
 // Route::get('/cursos', [CursoController::class, 'index'])->name('cursos.index');

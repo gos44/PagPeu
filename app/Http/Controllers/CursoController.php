@@ -19,14 +19,16 @@ class CursoController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'nombre' => 'required',
-            'descripcion' => 'nullable',
-            'fecha_inicio' => 'required|date',
-            'fecha_fin' => 'required|date|after:fecha_inicio',
-        ]);
+        // $request->validate([
+        //     'nombre' => 'required',
+        //     'descripcion' => 'nullable',
+        //     'fecha_inicio' => 'required|date',
+        //     'fecha_fin' => 'required|date|after:fecha_inicio',
+        // ]);
+        // Curso::create($request->all());
 
-        Curso::create($request->all());
+        
+        $curso = Curso::create($request->all());
 
         return redirect()->route('cursos.index')
                          ->with('success', 'Curso creado exitosamente.');
