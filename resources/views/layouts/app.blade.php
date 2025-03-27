@@ -16,6 +16,7 @@
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="{{ route('cursos.index') }}">Cursos</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('cursos.create') }}">Crear Curso</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('contactanos') }}">Contacto</a></li>
                 </ul>
             </div>
         </div>

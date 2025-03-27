@@ -2,8 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\homeController;
-
+use App\Mail\ContactanosMailable;
 use App\Http\Controllers\CursoController;
+use Illuminate\Support\Facades\Mail;
+use App\Http\Controllers\ContactanosController;
 
 Route::get('/welcome', function () {
     return view('welcome');
@@ -14,6 +16,13 @@ Route::get('/hola', function () {
 });
 
 
+// route::get('contactanos', function(){
+//     Mail::to('gasc2004@gmail.com')->send(new ContactanosMailable);
+//     return "Mensaje enviado";
+// })->name('contactanos');
+
+route::get('contactanos', [ContactanosController::class, 'index'])->name('contactanos');
+route::post('contactanos', action: [ContactanosController::class, 'store'])->name('contactanos.store');
 
  Route::resource('cursos', CursoController::class);
 // Route::get('/cursos', [CursoController::class, 'index'])->name('cursos.index');
@@ -24,4 +33,3 @@ Route::get('/hola', function () {
 // Route::put('/cursos/{curso}', [CursoController::class, 'update'])->name('cursos.update');
 // // Route::patch('/cursos/{curso}', [CursoController::class, 'update']);
 // Route::delete('/cursos/{curso}', [CursoController::class, 'destroy'])->name('cursos.destroy');
-
